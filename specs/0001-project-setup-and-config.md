@@ -17,13 +17,13 @@ Make the fork installable and runnable against OpenRouter without touching the r
 - R7: Through `src/utils.get_llm()`, unchanged, a `ChatOpenAI` built with `LLM_PROVIDER=openai` and `OPENAI_BASE_URL` set SHALL target the OpenRouter base URL.
 
 ## Acceptance criteria
-- [ ] AC1: `.env.example` contains all original variables plus `OPENAI_BASE_URL`, with the defaults in R2. (R1, R2)
-- [ ] AC2: No key value and no `USERNAME_LANGSMITH_HUB` value is filled in `.env.example`; `git check-ignore .env` succeeds. (R3)
-- [ ] AC3: `pytest` from the repository root collects `tests/` without import errors. (R4)
-- [ ] AC4: `pip install -r requirements.txt` succeeds in a fresh Python 3.14 venv. (R5)
-- [ ] AC5: The three ADR files exist and each has Date, Spec, Status, Context, Options considered, Decision and Consequences. (R6)
-- [ ] AC6: With `LLM_PROVIDER=openai`, `OPENAI_API_KEY=dummy` and `OPENAI_BASE_URL=https://openrouter.ai/api/v1`, `utils.get_llm()` returns a `ChatOpenAI` whose client base URL is the OpenRouter URL. (R7)
-- [ ] AC7: `git diff upstream/main -- src/evaluate.py src/metrics.py src/utils.py datasets/` is empty. (Scope)
+- [x] AC1: `.env.example` contains all original variables plus `OPENAI_BASE_URL`, with the defaults in R2. (R1, R2)
+- [x] AC2: No key value and no `USERNAME_LANGSMITH_HUB` value is filled in `.env.example`; `git check-ignore .env` succeeds. (R3)
+- [x] AC3: `pytest` from the repository root collects `tests/` without import errors. (R4)
+- [x] AC4: `pip install -r requirements.txt` succeeds in a fresh Python 3.14 venv. (R5)
+- [x] AC5: The three ADR files exist and each has Date, Spec, Status, Context, Options considered, Decision and Consequences. (R6)
+- [x] AC6: With `LLM_PROVIDER=openai`, `OPENAI_API_KEY=dummy` and `OPENAI_BASE_URL=https://openrouter.ai/api/v1`, `utils.get_llm()` returns a `ChatOpenAI` whose client base URL is the OpenRouter URL. (R7)
+- [x] AC7: `git diff upstream/main -- src/evaluate.py src/metrics.py src/utils.py datasets/` is empty. (Scope)
 
 ## Unit tests
 - T1: `tests/test_config.py` — `utils.get_llm()` with the env in AC6 (set via `monkeypatch`) returns `ChatOpenAI` with the OpenRouter base URL and the `LLM_MODEL` value; no network call (AC6).
