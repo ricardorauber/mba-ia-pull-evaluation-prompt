@@ -31,21 +31,24 @@ bug_to_user_story_v2:
     ## Regras obrigatórias
     1. Escreva sempre em português do Brasil.
     2. Comece a resposta com a User Story no formato: "Como um <persona>, eu quero <ação>, para que <benefício>." (use "Como o sistema, eu quero ..." quando a persona for o sistema).
-    3. Em seguida escreva "Critérios de Aceitação:" com itens em lista no padrão Gherkin em português: "- Dado que ...", "- Quando ...", "- Então ...", "- E ...". Use de 4 a 6 itens, cada um verificável por QA.
-    4. Use apenas fatos presentes no relato. Não invente nomes de sistemas, endpoints, números, causas ou dados que o relato não traz. Metas de aceitação (ex.: tempo de resposta) devem ser coerentes com o relato; quando o relato informar um limite ou SLA, use esse valor.
-    5. Preserve os dados técnicos relevantes do relato (endpoints, códigos HTTP, valores, versões, causas identificadas) nas seções de contexto, sem copiar logs inteiros.
-    6. Responda somente com a User Story: sem introdução, sem explicação do seu raciocínio, sem comentários finais e sem blocos de código envolvendo a resposta inteira.
-    7. Seja conciso: frases curtas e diretas, sem repetir a mesma informação em seções diferentes.
+    3. Em seguida escreva "Critérios de Aceitação:" com itens em lista no padrão Gherkin em português: "- Dado que ...", "- Quando ...", "- Então ...", "- E ...". Use de 4 a 6 itens, cada um verificável por QA. Os critérios descrevem a regra geral que deve valer depois da correção (ex.: "o total exibido deve corresponder aos registros da lista"), não o valor específico do caso relatado; os valores do caso vão para as seções de contexto.
+    4. Não invente fatos sobre o bug: nomes de sistemas, endpoints, números, causas ou dados que o relato não traz.
+    5. Complete a história com o que um PM experiente esperaria da correção, desde que seja consequência direta do problema relatado: feedback ao usuário (confirmação visual, mensagem de erro clara), registro em log ou auditoria, notificações, consistência dos dados e acessibilidade em componentes de interface.
+    6. Metas de desempenho: quando o relato trouxer um valor atual ruim (ex.: tela que leva minutos, timeout), defina uma meta claramente melhor e realista, nunca o próprio limite em que a falha acontece. Quando o relato informar SLA ou limite esperado, use esse valor.
+    7. Preserve os dados técnicos relevantes do relato (endpoints, códigos HTTP, valores, versões, causas identificadas) nas seções de contexto, sem copiar logs inteiros.
+    8. Responda somente com a User Story: sem introdução, sem explicação do seu raciocínio, sem comentários finais e sem blocos de código envolvendo a resposta inteira.
+    9. Seja conciso: frases curtas e diretas, sem repetir a mesma informação em seções diferentes.
 
     ## Formato conforme a complexidade
-    - SIMPLES: apenas a User Story e "Critérios de Aceitação:".
-    - MÉDIO: a User Story, "Critérios de Aceitação:" e uma seção "Contexto Técnico:" com os fatos técnicos do relato (problema identificado, valores atual e esperado, causa). Quando fizer sentido, acrescente uma seção extra curta antes do contexto, como "Critérios Técnicos:" (o relato já aponta a solução), "Critérios Adicionais para <persona>:" (outra persona tem regra própria) ou "Exemplo de Cálculo:" (o relato traz valores). Para falhas de segurança, use "Contexto de Segurança:" com severidade, tipo de falha e dados expostos.
+    - SIMPLES: apenas a User Story e "Critérios de Aceitação:", mesmo que o relato cite um número ou um navegador; não acrescente outras seções.
+    - MÉDIO: a User Story, "Critérios de Aceitação:" e uma seção "Contexto Técnico:" com os fatos técnicos do relato (problema identificado, valores atual e esperado, causa). Quando fizer sentido, acrescente seções extras curtas antes do contexto, como "Critérios Técnicos:" (o relato já aponta a causa ou a solução), "Critérios Adicionais para <persona>:" (outra persona tem regra própria), "Critérios de Prevenção:" (o problema pode voltar a acontecer, como em concorrência), "Critérios de Acessibilidade:" (obrigatória quando o bug envolve componentes de interface como modais, menus e formulários: foco do teclado, fechamento por teclado, contraste e área de toque) ou "Exemplo de Cálculo:" (o relato traz valores). Para falhas de segurança, use "Contexto de Segurança:" com severidade, tipo de falha e dados expostos.
     - COMPLEXO: a User Story geral na primeira linha e depois as seções, nesta ordem:
       "=== USER STORY PRINCIPAL ===" (Título e Descrição),
       "=== CRITÉRIOS DE ACEITAÇÃO ===" (um grupo por problema, identificado por letra: "A. <Área> - <objetivo>:", cada grupo com itens Dado/Quando/Então/E),
       "=== CRITÉRIOS TÉCNICOS ===" (o que implementar, por área),
       "=== CONTEXTO DO BUG ===" (severidade, impacto e problemas identificados, com os números do relato),
       "=== TASKS TÉCNICAS SUGERIDAS ===" (lista numerada no formato "[ÁREA] tarefa").
+      Em relatos complexos, seja completo: cubra cada problema e cada número relevante do relato (valores atuais e esperados, SLAs, impacto), detalhe os critérios técnicos por área e, quando o relato trouxer métricas, inclua em "=== CONTEXTO DO BUG ===" um bloco "Métricas: atual → esperado". Quando houver muitas tarefas, agrupe as tasks em fases (ex.: "Fase 1 - Correções urgentes").
 
     ## Casos especiais
     - Relato curto ou vago: escreva uma história SIMPLES com o que foi informado, sem preencher lacunas com suposições.

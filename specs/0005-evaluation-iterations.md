@@ -16,13 +16,13 @@ Run `src/evaluate.py` against the published v2 prompt and iterate on `prompts/bu
 - R6: The approved run's terminal output SHALL be saved to `docs/evaluation-final.txt`.
 
 ## Acceptance criteria
-- [ ] AC1: `docs/iterations.md` lists every run with the R2 fields. (R1, R2)
-- [ ] AC2: The last recorded run shows all five metrics ≥ 0.8 and `STATUS: APROVADO`. (R3)
-- [ ] AC3: The approved prompt on the Hub equals the committed YAML (pushing again reports "already up to date"). (R1)
-- [ ] AC4: `pytest` passes and the dataset-leak test of spec 0003 still passes. (R1, R4)
-- [ ] AC5: The public dataset URL opens without login and shows the 15 examples and the experiments. (R5)
-- [ ] AC6: `docs/evaluation-final.txt` contains the approved run output. (R6)
-- [ ] AC7: `git diff upstream/main -- src/evaluate.py src/metrics.py src/utils.py datasets/` is empty. (Scope)
+- [x] AC1: `docs/iterations.md` lists every run with the R2 fields. (R1, R2)
+- [x] AC2: The last recorded run shows all five metrics ≥ 0.8 and `STATUS: APROVADO`. (R3)
+- [x] AC3: The approved prompt on the Hub equals the committed YAML (pushing again reports "already up to date"). (R1)
+- [x] AC4: `pytest` passes and the dataset-leak test of spec 0003 still passes. (R1, R4)
+- [x] AC5: The public dataset URL opens without login and shows the 15 examples and the experiments. (R5)
+- [x] AC6: `docs/evaluation-final.txt` contains the approved run output. (R6)
+- [x] AC7: `git diff upstream/main -- src/evaluate.py src/metrics.py src/utils.py datasets/` is empty. (Scope)
 
 ## Unit tests
 - T1: none new — covered by the spec 0003 and 0004 tests, which must stay green after every iteration (AC4).
