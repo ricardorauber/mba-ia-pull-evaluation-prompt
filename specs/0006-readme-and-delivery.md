@@ -15,11 +15,11 @@ Document the techniques, results and how to run the project in the README, attac
 - R5: The repository SHALL be the public fork `ricardorauber/mba-ia-pull-evaluation-prompt` with all code, specs, ADRs, tests, prompts and docs on `main`; `.env` SHALL never be committed.
 
 ## Acceptance criteria
-- [ ] AC1: The three README sections exist with the content in R1, R2 and R4. (R1, R2, R4)
-- [ ] AC2: Every image referenced in the README exists in `docs/images/` and shows the items listed in R3; no screenshot exposes an API key. (R3)
-- [ ] AC3: Every variable in `.env.example` appears in the README. (R4)
-- [ ] AC4: Following "Como Executar" on a clean clone runs all four commands. (R4)
-- [ ] AC5: `https://github.com/ricardorauber/mba-ia-pull-evaluation-prompt` is public, a fork of `devfullcycle/mba-ia-pull-evaluation-prompt`, and its `main` contains the final work; `git ls-files` does not list `.env`. (R5)
+- [x] AC1: The three README sections exist with the content in R1, R2 and R4. (R1, R2, R4)
+- [x] AC2: Every image referenced in the README exists in `docs/images/` and shows the items listed in R3; no screenshot exposes an API key. (R3)
+- [x] AC3: Every variable in `.env.example` appears in the README. (R4)
+- [x] AC4: Following "Como Executar" on a clean clone runs all four commands. (R4)
+- [x] AC5: `https://github.com/ricardorauber/mba-ia-pull-evaluation-prompt` is public, a fork of `devfullcycle/mba-ia-pull-evaluation-prompt`, and its `main` contains the final work; `git ls-files` does not list `.env`. (R5)
 
 ## Unit tests
 - T1: none — documentation and delivery only; verified by AC1–AC5.
