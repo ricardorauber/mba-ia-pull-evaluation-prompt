@@ -20,16 +20,16 @@ Write `prompts/bug_to_user_story_v2.yml`, a prompt that turns a bug report into 
 - R10: `tests/test_prompts.py` SHALL implement, against the v2 file, `test_prompt_has_system_prompt`, `test_prompt_has_role_definition`, `test_prompt_mentions_format`, `test_prompt_has_few_shot_examples`, `test_prompt_no_todos` and `test_minimum_techniques`.
 
 ## Acceptance criteria
-- [ ] AC1: The YAML loads with `yaml.safe_load` and has every R1 field, with at least 2 entries in `techniques_applied`. (R1)
-- [ ] AC2: `system_prompt` contains "Você é um Product Manager". (R2)
-- [ ] AC3: `system_prompt` contains "Como um", "eu quero", "para que", "Critérios de Aceitação" and "Dado que". (R3)
-- [ ] AC4: `system_prompt` contains the step-by-step reasoning instruction and the rule not to print it. (R4)
-- [ ] AC5: `system_prompt` mentions "Contexto Técnico" and the `===` section format for complex reports. (R5)
-- [ ] AC6: Each edge case in R6 is addressed by a rule in `system_prompt`. (R6)
-- [ ] AC7: `system_prompt` has at least three "Relato de bug:" / "User Story:" pairs, and none of the dataset bug reports appears in it. (R7)
-- [ ] AC8: `ChatPromptTemplate.from_messages([("system", system_prompt), ("user", user_prompt)]).input_variables == ["bug_report"]`. (R8)
-- [ ] AC9: `utils.validate_prompt_structure` returns `(True, [])` and no TODO appears. (R9)
-- [ ] AC10: `pytest tests/test_prompts.py` passes all six tests. (R10)
+- [x] AC1: The YAML loads with `yaml.safe_load` and has every R1 field, with at least 2 entries in `techniques_applied`. (R1)
+- [x] AC2: `system_prompt` contains "Você é um Product Manager". (R2)
+- [x] AC3: `system_prompt` contains "Como um", "eu quero", "para que", "Critérios de Aceitação" and "Dado que". (R3)
+- [x] AC4: `system_prompt` contains the step-by-step reasoning instruction and the rule not to print it. (R4)
+- [x] AC5: `system_prompt` mentions "Contexto Técnico" and the `===` section format for complex reports. (R5)
+- [x] AC6: Each edge case in R6 is addressed by a rule in `system_prompt`. (R6)
+- [x] AC7: `system_prompt` has at least three "Relato de bug:" / "User Story:" pairs, and none of the dataset bug reports appears in it. (R7)
+- [x] AC8: `ChatPromptTemplate.from_messages([("system", system_prompt), ("user", user_prompt)]).input_variables == ["bug_report"]`. (R8)
+- [x] AC9: `utils.validate_prompt_structure` returns `(True, [])` and no TODO appears. (R9)
+- [x] AC10: `pytest tests/test_prompts.py` passes all six tests. (R10)
 
 ## Unit tests
 - T1: `test_prompt_has_system_prompt` — field exists and is non-empty (AC1).
