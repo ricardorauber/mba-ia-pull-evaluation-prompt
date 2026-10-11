@@ -17,13 +17,13 @@ Implement `src/push_prompts.py` so it validates `prompts/bug_to_user_story_v2.ym
 - R7: On success the script SHALL print the prompt identifier and the URL returned by `push_prompt`, and return `0`; it SHALL never print the API key value.
 
 ## Acceptance criteria
-- [ ] AC1: Without `USERNAME_LANGSMITH_HUB`, `main()` returns `1` and `Client` is never instantiated. (R1)
-- [ ] AC2: Missing YAML file or missing `bug_to_user_story_v2` entry → `1` with a Portuguese error. (R2)
-- [ ] AC3: A prompt with fewer than 2 techniques, an empty `system_prompt`, a missing `user_prompt` or an extra variable is rejected with one error per problem and no push. (R3)
-- [ ] AC4: A valid prompt is pushed once with the identifier `"<handle>/bug_to_user_story_v2"`, `is_public=True` and a `ChatPromptTemplate` whose input variables are `["bug_report"]`. (R4)
-- [ ] AC5: `tags` contains the YAML tags plus the technique slugs without duplicates; `description` and `readme` match R5. (R5)
-- [ ] AC6: A 409 conflict returns `0` with an "already up to date" message; another exception returns `1`. (R6)
-- [ ] AC7: Running `python src/push_prompts.py` with real credentials publishes the prompt, and it is visible and public at `https://smith.langchain.com/hub/<handle>/bug_to_user_story_v2`. (R4, R7)
+- [x] AC1: Without `USERNAME_LANGSMITH_HUB`, `main()` returns `1` and `Client` is never instantiated. (R1)
+- [x] AC2: Missing YAML file or missing `bug_to_user_story_v2` entry → `1` with a Portuguese error. (R2)
+- [x] AC3: A prompt with fewer than 2 techniques, an empty `system_prompt`, a missing `user_prompt` or an extra variable is rejected with one error per problem and no push. (R3)
+- [x] AC4: A valid prompt is pushed once with the identifier `"<handle>/bug_to_user_story_v2"`, `is_public=True` and a `ChatPromptTemplate` whose input variables are `["bug_report"]`. (R4)
+- [x] AC5: `tags` contains the YAML tags plus the technique slugs without duplicates; `description` and `readme` match R5. (R5)
+- [x] AC6: A 409 conflict returns `0` with an "already up to date" message; another exception returns `1`. (R6)
+- [x] AC7: Running `python src/push_prompts.py` with real credentials publishes the prompt, and it is visible and public at `https://smith.langchain.com/hub/<handle>/bug_to_user_story_v2`. (R4, R7)
 
 ## Unit tests
 - T1: missing env var → `1`, no `Client` (AC1).
