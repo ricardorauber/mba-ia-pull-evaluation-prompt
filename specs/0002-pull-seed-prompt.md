@@ -16,12 +16,12 @@ Implement `src/pull_prompts.py` so it downloads `leonanluppi/bug_to_user_story_v
 - R6: The script SHALL never print the API key value.
 
 ## Acceptance criteria
-- [ ] AC1: Without `LANGSMITH_API_KEY`, `main()` returns `1` and `Client` is never instantiated. (R1)
-- [ ] AC2: `pull_prompt` is called once with `"leonanluppi/bug_to_user_story_v1"` and `dangerously_pull_public_prompt=True`. (R2)
-- [ ] AC3: For a template with one system and one human message, the saved YAML has the R3 fields with the exact message texts, including `{bug_report}`. (R3, R4)
-- [ ] AC4: A pull that raises makes `main()` return `1` and print a Portuguese error. (R5)
-- [ ] AC5: Running `python src/pull_prompts.py` with a real key creates `prompts/bug_to_user_story_v1.yml` whose `system_prompt` contains `{bug_report}`. (R2–R5)
-- [ ] AC6: No captured output contains the API key value. (R6)
+- [x] AC1: Without `LANGSMITH_API_KEY`, `main()` returns `1` and `Client` is never instantiated. (R1)
+- [x] AC2: `pull_prompt` is called once with `"leonanluppi/bug_to_user_story_v1"` and `dangerously_pull_public_prompt=True`. (R2)
+- [x] AC3: For a template with one system and one human message, the saved YAML has the R3 fields with the exact message texts, including `{bug_report}`. (R3, R4)
+- [x] AC4: A pull that raises makes `main()` return `1` and print a Portuguese error. (R5)
+- [x] AC5: Running `python src/pull_prompts.py` with a real key creates `prompts/bug_to_user_story_v1.yml` whose `system_prompt` contains `{bug_report}`. (R2–R5)
+- [x] AC6: No captured output contains the API key value. (R6)
 
 ## Unit tests
 - T1: missing env var → exit code `1`, `Client` not called (AC1).
